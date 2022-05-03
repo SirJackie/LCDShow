@@ -19,8 +19,8 @@ static void LCD_Write_AllData(uint16_t Data, uint32_t DataLen)
 
 char strBuf[256];
 
-void SerialPrintInt(uint32_t x){
-  sprintf(strBuf, "%d", (uint32_t)x);
+void SerialPrintUint32(uint32_t x){
+  sprintf(strBuf, "%lu", (uint32_t)x);
   Serial.println(strBuf);
 }
 
@@ -34,11 +34,10 @@ void setup()
   
   LCD_SetWindow(0, 0, LCD_WIDTH, LCD_HEIGHT);
   LCD_Write_AllData(RGB(31, 0, 0), (uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
-
   
-  SerialPrintInt((uint32_t)LCD_WIDTH);
-  SerialPrintInt((uint32_t)LCD_HEIGHT);
-  SerialPrintInt((uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
+  SerialPrintUint32((uint32_t)LCD_WIDTH);
+  SerialPrintUint32((uint32_t)LCD_HEIGHT);
+  SerialPrintUint32((uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
 }
 
 void loop()
