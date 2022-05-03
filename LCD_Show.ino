@@ -26,7 +26,16 @@ void setup()
   LCD_Init(Lcd_ScanDir, 200);
   
 //  LCD_Clear(RGB(31, 0, 0));
-  LCD_SetArealColor(0, 0, LCD_WIDTH , LCD_HEIGHT , RGB(31, 0, 0));
+//  LCD_SetArealColor(0, 0, LCD_WIDTH , LCD_HEIGHT , RGB(31, 0, 0));
+  POINT Xstart = 0;
+  POINT Ystart = 0;
+  POINT Xend = LCD_WIDTH;
+  POINT Yend = LCD_HEIGHT;
+  COLOR Color = RGB(31, 0, 0);
+  if((Xend > Xstart) && (Yend > Ystart)) {
+      LCD_SetWindow(Xstart , Ystart , Xend , Yend  );
+      LCD_SetColor ( Color , Xend - Xstart, Yend - Ystart);
+  }
   //-------------
 //  LCD_SetWindow(0, 0, 480, 320);
 //  LCD_Write_AllData(RGB(31, 63, 31), 480*320);
