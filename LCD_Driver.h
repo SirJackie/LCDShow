@@ -19,9 +19,28 @@
 
 #include "DEV_Config.h"
 
-#define	COLOR				uint16_t		//The variable type of the color (unsigned short) 
-#define	POINT				uint16_t		//The type of coordinate (unsigned short) 
-#define	LENGTH				uint16_t		//The type of coordinate (unsigned short) 
+#define	COLOR				uint16_t		    // The variable type of the color (unsigned short) 
+#define	POINT				uint16_t		    // The type of coordinate (unsigned short) 
+#define	LENGTH				uint16_t		  // The type of coordinate (unsigned short) 
+
+#define LCD_BACKGROUND      WHITE   // Default background color
+#define FONT_BACKGROUND     WHITE   // Default font background color
+#define FONT_FOREGROUND     GRED    // Default font foreground color
+
+#define WHITE               0xFFFF
+#define BLACK               0x0000
+#define BLUE                0x001F
+#define BRED                0XF81F
+#define GRED                0XFFE0
+#define GBLUE               0X07FF
+#define RED                 0xF800
+#define MAGENTA             0xF81F
+#define GREEN               0x07E0
+#define CYAN                0x7FFF
+#define YELLOW              0xFFE0
+#define BROWN               0XBC40
+#define BRRED               0XFC07
+#define GRAY                0X8430
 
 /********************************************************************************
 function:
@@ -90,9 +109,5 @@ void LCD_SetColor(COLOR Color ,POINT Xpoint, POINT Ypoint);
 void LCD_SetPointlColor(POINT Xpoint, POINT Ypoint, COLOR Color);
 void LCD_SetArealColor(POINT Xstart, POINT Ystart, POINT Xend, POINT Yend,COLOR  Color);
 void LCD_Clear(COLOR  Color);
+
 #endif
-
-
-
-
-
