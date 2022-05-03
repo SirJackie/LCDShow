@@ -12,21 +12,41 @@
 #include <SPI.h>
 #include <Wire.h>
 
-//GPIO config
+//Faster digitalWrite
+#define fastDigitalWriteHIGH(Pin) *(portOutputRegister(digitalPinToPort(Pin)))|=digitalPinToBitMask(Pin)  //Faster digitalWrite(Pin,HIGH);
+#define fastDigitalWriteLOW(Pin) *(portOutputRegister(digitalPinToPort(Pin)))&=~digitalPinToBitMask(Pin)  //Faster digitalWrite(Pin,LOW);
+
+//Faster GPIO config
 //LCD
 #define LCD_CS 10
-#define LCD_CS_0		digitalWrite(LCD_CS, LOW)
-#define LCD_CS_1		digitalWrite(LCD_CS, HIGH)
+#define LCD_CS_0    fastDigitalWriteLOW(LCD_CS)
+#define LCD_CS_1    fastDigitalWriteHIGH(LCD_CS)
 
 #define LCD_BL 9
 
 #define LCD_RST 8
-#define LCD_RST_0		digitalWrite(LCD_RST, LOW)
-#define LCD_RST_1		digitalWrite(LCD_RST, HIGH)
+#define LCD_RST_0   fastDigitalWriteLOW(LCD_RST)
+#define LCD_RST_1   fastDigitalWriteHIGH(LCD_RST)
 
 #define LCD_DC 7
-#define LCD_DC_0		digitalWrite(LCD_DC, LOW)
-#define LCD_DC_1		digitalWrite(LCD_DC, HIGH)
+#define LCD_DC_0    fastDigitalWriteLOW(LCD_DC)
+#define LCD_DC_1    fastDigitalWriteHIGH(LCD_DC)
+
+////GPIO config
+////LCD
+//#define LCD_CS 10
+//#define LCD_CS_0    digitalWrite(LCD_CS, LOW)
+//#define LCD_CS_1    digitalWrite(LCD_CS, HIGH)
+//
+//#define LCD_BL 9
+//
+//#define LCD_RST 8
+//#define LCD_RST_0   digitalWrite(LCD_RST, LOW)
+//#define LCD_RST_1   digitalWrite(LCD_RST, HIGH)
+//
+//#define LCD_DC 7
+//#define LCD_DC_0    digitalWrite(LCD_DC, LOW)
+//#define LCD_DC_1    digitalWrite(LCD_DC, HIGH)
 
 
 /*------------------------------------------------------------------------------------------------------*/
