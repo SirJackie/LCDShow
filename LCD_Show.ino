@@ -29,7 +29,14 @@ void setup()
 //  LCD_SetArealColor(0, 0, LCD_WIDTH , LCD_HEIGHT , RGB(31, 0, 0));
 
   LCD_SetWindow(0, 0, LCD_WIDTH, LCD_HEIGHT);
-  LCD_SetColor (RGB(31, 0, 0), LCD_WIDTH, LCD_HEIGHT);
+//  LCD_SetColor (RGB(31, 0, 0), LCD_WIDTH, LCD_HEIGHT);
+
+  LCD_Write_AllData(RGB(31, 0, 0), (uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
+//  LCD_Write_AllData(RGB(31, 0, 0), LCD_WIDTH * LCD_HEIGHT);
+//  LCD_Write_AllData(RGB(31, 0, 0), 32768);
+
+  // (uint32_t) transformation is crucial
+  // Otherwise, the 16bit int can't store such a big number(length)
   
   //-------------
 //  LCD_SetWindow(0, 0, 480, 320);
