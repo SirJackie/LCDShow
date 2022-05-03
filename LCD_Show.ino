@@ -17,6 +17,13 @@ static void LCD_Write_AllData(uint16_t Data, uint32_t DataLen)
     LCD_CS_1;
 }
 
+char strBuf[256];
+
+void SerialPrintInt(uint32_t x){
+  sprintf(strBuf, "%d", (uint32_t)x);
+  Serial.println(strBuf);
+}
+
 void setup()
 {
   //-------------
@@ -25,22 +32,13 @@ void setup()
   LCD_SCAN_DIR Lcd_ScanDir = SCAN_DIR_DFT;  
   LCD_Init(Lcd_ScanDir, 200);
   
-//  LCD_Clear(RGB(31, 0, 0));
-//  LCD_SetArealColor(0, 0, LCD_WIDTH , LCD_HEIGHT , RGB(31, 0, 0));
-
   LCD_SetWindow(0, 0, LCD_WIDTH, LCD_HEIGHT);
-//  LCD_SetColor (RGB(31, 0, 0), LCD_WIDTH, LCD_HEIGHT);
-
   LCD_Write_AllData(RGB(31, 0, 0), (uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
-//  LCD_Write_AllData(RGB(31, 0, 0), LCD_WIDTH * LCD_HEIGHT);
-//  LCD_Write_AllData(RGB(31, 0, 0), 32768);
 
-  // (uint32_t) transformation is crucial
-  // Otherwise, the 16bit int can't store such a big number(length)
   
-  //-------------
-//  LCD_SetWindow(0, 0, 480, 320);
-//  LCD_Write_AllData(RGB(31, 63, 31), 480*320);
+  SerialPrintInt((uint32_t)LCD_WIDTH);
+  SerialPrintInt((uint32_t)LCD_HEIGHT);
+  SerialPrintInt((uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT);
 }
 
 void loop()
