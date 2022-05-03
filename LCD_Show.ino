@@ -8,7 +8,7 @@ void setup()
   LCD_SCAN_DIR Lcd_ScanDir = SCAN_DIR_DFT;  
   LCD_Init(Lcd_ScanDir, 200);
 
-  LCD_Clear(LCD_BACKGROUND);
+  LCD_Clear(RGB(31, 0, 0));
 }
 
 void loop()
