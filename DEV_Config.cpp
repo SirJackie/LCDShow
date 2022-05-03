@@ -23,7 +23,7 @@ uint8_t System_Init(void)
   pinMode(LCD_BL,OUTPUT);
 
   //set Serial
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   SPI.setDataMode(SPI_MODE0);
   SPI.setBitOrder(MSBFIRST);
