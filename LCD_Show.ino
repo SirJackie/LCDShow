@@ -7,15 +7,16 @@ void setup()
   DebugInit();
   
   ClearFrameBuffer();
-//  FillRectangle(10, 10, 110, 110, CSRGB(31, 0, 0));
-//  FillRectangle(20, 20, 120, 120, CSRGB(31, 31, 0));
-//  FillRectangle(30, 30, 130, 130, CSRGB(31, 0, 31));
-//  FillRectangle(40, 40, 140, 140, CSRGB(0, 31, 0));
-//  FillRectangle(50, 50, 150, 150, CSRGB(0, 0, 31));
-//  FillRectangle(60, 60, 160, 160, CSRGB(0, 0, 0));
-//  FillRectangle(70, 70, 170, 170, CSRGB(0, 31, 31));
 
-  SetPixel(10, 10, CSRGB(31, 0, 0));
+  // Fast Fill Rectangle
+  FillRectangle(10, 10, 110, 110, CSRGB(31, 0, 0));
+
+  // Slow Fill Rectangle (using SetPixel())
+  for(int y = 120; y < 220; y++){
+    for(int x = 10; x < 110; x++){
+      SetPixel(x, y, CSRGB(31, 0, 0));
+    }
+  }
 }
 
 void loop()
