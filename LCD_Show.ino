@@ -1,21 +1,5 @@
 #include "FrameBufferTools.h"
 
-/*******************************************************************************
-function:
-    Write register data
-*******************************************************************************/
-static void LCD_Write_AllData(uint16_t Data, uint32_t DataLen)
-{
-    uint32_t i;
-    LCD_DC_1;
-    LCD_CS_0;
-    for(i = 0; i < DataLen; i++) {
-        SPI4W_Write_Byte(Data >> 8);
-        SPI4W_Write_Byte(Data & 0XFF);
-    }
-    LCD_CS_1;
-}
-
 char strBuf[256];
 
 void SerialPrintUint32(uint32_t x){
@@ -43,6 +27,8 @@ void setup()
       SPI4W_Write_Byte(Data & 0XFF);
   }
   LCD_CS_1;
+
+  SerialPrintUint32(DataLen);
 }
 
 void loop()
