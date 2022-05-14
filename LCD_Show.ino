@@ -3,11 +3,8 @@
 
 void setup()
 {
-  //-------------
-  System_Init();
-
-  LCD_SCAN_DIR Lcd_ScanDir = SCAN_DIR_DFT;  
-  LCD_Init(Lcd_ScanDir, 200);
+  FrameBufferInit();
+  DebugInit();
   
   LCD_SetWindow(0, 0, LCD_WIDTH, LCD_HEIGHT);
   
@@ -21,11 +18,6 @@ void setup()
       SPI4W_Write_Byte(Data & 0XFF);
   }
   LCD_CS_1;
-
-  DebugInit();
-  DebugString("Hello Debugger!");
-  DebugUint32(DataLen);
-  DebugFloat(-3.1415926f);
 }
 
 void loop()

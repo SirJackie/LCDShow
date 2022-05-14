@@ -1,1 +1,7 @@
 #include "FrameBufferTools.h"
+
+void FrameBufferInit(){
+  System_Init();
+  LCD_SCAN_DIR Lcd_ScanDir = SCAN_DIR_DFT;
+  LCD_Init(Lcd_ScanDir, 200);
+}
