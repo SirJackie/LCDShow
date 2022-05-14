@@ -17,6 +17,6 @@ extern int screenHeightSaver;
 void FrameBufferInit();
 void FillRectangle(int x0, int y0, int x1, int y1, int color);
 #define ClearFrameBuffer() (FillRectangle(0, 0, screenWidthSaver, screenHeightSaver, CSRGB(31, 63, 31)))
-
+#define SetPixel(x, y, color) (LCD_SetWindow(x, y, x, y), LCD_DC_1, LCD_CS_0, SPI4W_Write_Byte(color >> 8), SPI4W_Write_Byte(color & 0XFF), LCD_CS_1)
 
 #endif
