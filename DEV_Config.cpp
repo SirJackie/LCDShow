@@ -1,11 +1,3 @@
-/******************************************************************************
-**************************Hardware interface layer*****************************
-* | file          :   DEV_Config.
-* | version     :   V1.0
-* | date        :   2017-12-11
-* | function    :
-    Provide the hardware underlying interface
-******************************************************************************/
 #include "DEV_Config.h"
 #include <SPI.h>
 

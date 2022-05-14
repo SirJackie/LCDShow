@@ -1,5 +1,4 @@
-#include "DEV_Config.h"
-#include "LCD_Driver.h"
+#include "FrameBufferTools.h"
 
 /*******************************************************************************
 function:
