@@ -1,11 +1,5 @@
 #include "FrameBufferTools.h"
-
-char strBuf[256];
-
-void SerialPrintUint32(uint32_t x){
-  sprintf(strBuf, "%lu", (uint32_t)x);
-  Serial.println(strBuf);
-}
+#include "Debug.h"
 
 void setup()
 {
@@ -28,7 +22,10 @@ void setup()
   }
   LCD_CS_1;
 
-  SerialPrintUint32(DataLen);
+  DebugInit();
+  DebugString("Hello Debugger!");
+  DebugUint32(DataLen);
+  DebugFloat(-3.1415926f);
 }
 
 void loop()
