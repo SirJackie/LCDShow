@@ -1,6 +1,5 @@
 #include "DEV_Config.h"
 #include "LCD_Driver.h"
-#include "Debug.h"
 
 LCD_DIS sLCD_DIS;
 /*******************************************************************************
