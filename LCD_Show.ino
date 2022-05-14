@@ -8,7 +8,7 @@ void setup()
   
   LCD_SetWindow(0, 0, LCD_WIDTH, LCD_HEIGHT);
   
-  uint16_t Data = RGB(31, 0, 0);
+  uint16_t Data = CSRGB(31, 0, 0);
   uint32_t DataLen = (uint32_t)LCD_WIDTH * (uint32_t)LCD_HEIGHT;
   uint32_t i;
   LCD_DC_1;
