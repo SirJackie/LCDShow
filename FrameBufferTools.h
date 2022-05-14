@@ -16,6 +16,7 @@ extern int screenHeightSaver;
 // Methods
 void FrameBufferInit();
 void FillRectangle(int x0, int y0, int x1, int y1, int color);
+#define ClearFrameBuffer() (FillRectangle(0, 0, screenWidthSaver, screenHeightSaver, CSRGB(31, 63, 31)))
 
 
 #endif
